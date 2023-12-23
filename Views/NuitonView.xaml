@@ -1,0 +1,94 @@
+﻿<Page x:Class="math_in.Views.NuitonView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:math_in.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900"
+      Title="NuitonView">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="325"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Формула" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="5,0,5,6"/>
+
+
+            <TextBox Name="TextBox_Function" Grid.Column="1" Background="LightGray" Margin="0,5,5,5"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Начальная" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Margin="5,0,0,0"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="точка"     TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="5,0,0,0"/>
+            </Grid>
+
+
+            <TextBox Name="TextBox_Start_Point" Grid.Column="1" Background="LightGray" Margin="0,5,5,5"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="88*"/>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="249*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Конечная" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Margin="0,0,0,0"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="точка"    TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="0,0,0,0"/>
+            </Grid>
+
+            <TextBox Name="TextBox_End_Point" Background="LightGray" Margin="88,5,5,5" Grid.ColumnSpan="3"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Точность" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="5,0,5,6"/>
+
+
+            <TextBox Name="TextBox_Precision" Grid.Column="1" Background="LightGray" Margin="0,5,5,5"/>
+        </Grid>
+
+        <Button Grid.Row="4" Grid.Column="0" Content="Метод Ньютона"           Margin="5,5,5,5" Click="Calculate_Nuiton_Button_Click"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="Метод Золотого Сечения"  Margin="5,5,5,5" Click="Golden_Ration_Button_Click"/>
+        <TextBlock Name="TextBlock_Result" Grid.Column= "1" Grid.RowSpan="4"  Background="LightGray" Margin="5,5,5,5"/>
+    </Grid>
+</Page>

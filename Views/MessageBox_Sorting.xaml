@@ -1,0 +1,14 @@
+﻿<Window x:Class="math_in.Views.MessageBox_Sorting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MessageBox_Sorting" ResizeMode="NoResize" Height="110" Width="280" WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Grid Background="Black">
+        <StackPanel Margin="1" Background="White">
+            <TextBlock  Text="Введите количество элементов" FontSize="18" Width="280" Background="LightGray" FontFamily="Arial" TextAlignment="Center" Height="25"/>
+            <TextBox    Name="TextBox_Number" Margin="50,8,50,5" VerticalContentAlignment="Center" FontFamily="Arial" HorizontalContentAlignment="Center" Background="LightGray" FontSize="18" Height="25"/>
+            <Button     Content="OK"          Margin="50,7,50,5" VerticalContentAlignment="Center" FontFamily="Arial" HorizontalContentAlignment="Center" Background="LightGray" Click="OK_Button_Click" Height="25" FontSize="17" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,123 @@
+﻿<Window
+    x:Class="math_in.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:math_in"
+    mc:Ignorable="d"
+    Title="MainWindow" Height="522" Width="900" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="ToolBar">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                            </Border>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D3D3D3"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#808080"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="Base">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" CornerRadius="2" RenderTransformOrigin="0.5 0.5">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleX="-10"/>
+                                        <RotateTransform/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                            </Border>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D3D3D3"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#808080"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="37"/>
+            <RowDefinition Height="460"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="Transparent" MouseDown="ToolBar_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="3" Click="ExitButton_Click" Style="{StaticResource ToolBar}">
+                <Image/>
+            </Button>
+            
+            <Button Grid.Column="2" Click="HideButton_Click" Style="{StaticResource ToolBar}">
+                <Image/>
+            </Button>
+        </Grid>
+
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="99*"/>
+                <ColumnDefinition Width="118*"/>
+                <ColumnDefinition Width="110*"/>
+                <ColumnDefinition Width="165*"/>
+                <ColumnDefinition Width="184*"/>
+                <ColumnDefinition Width="74*"/>
+                <ColumnDefinition Width="221*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin ="5,5,5,5" Content="Метод Дихтомии"             Style="{StaticResource Base}" Click="DichtomyViewButton_Click" Grid.ColumnSpan="2" />
+            <Button Grid.Column="2" Margin ="5,5,5,5" Content="Метод Ньютона"              Style="{StaticResource Base}" Click="NuitonViewButton_Click"/>
+            <Button Grid.Column="3" Margin ="5,0,5,0" Content="Сортировки"                 Style="{StaticResource Base}" Click="SortingViewButton_Click" Height="27" VerticalAlignment="Center"  />
+            <Button Grid.Column="4" Margin ="5,5,5,5" Content="Покоординатный спуск"       Style="{StaticResource Base}" Click="CoordinateDescentViewButton_Click"/>
+            <Button Grid.Column="5" Margin ="5,5,5,5" Content="Определённый интеграл"      Style="{StaticResource Base}" Click="DefiniteIntegralButton_Click"/>
+            <Button Grid.Column="6" Margin ="5,0,5,0" Content="СЛАУ"                       Style="{StaticResource Base}" Click="SLAEViewButton_Click" Height="27" VerticalAlignment="Center" />
+            <Button Grid.Column="7" Margin ="5,5,5,5" Content="Метод наименьних квадратов" Style="{StaticResource Base}" Click="LeastSquaresMethodViewButton_Click"/>
+        </Grid>
+
+        <Frame Name="MainFrame"  Grid.Row="2" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" />
+
+    </Grid>
+</Window>
