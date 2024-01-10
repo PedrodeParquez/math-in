@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Parser {
-  public class Function : ParsTreeNode {
+namespace FunctionParser {
+  public class FunctionParser : ParsTreeNode {
     public enum FunctionEnum {
       Sinh, Sin, Cosh, Cos, Tanh, Tan, Coth, Cot, Sich, Sic, Csch, Csc, E, Log, Ln
     }
+
+    public FunctionEnum Func { get; set; }
+    public Term Term;
+
     public static bool IsFunction(string function, string[] ids) {
       foreach (string func in Enum.GetNames(typeof(FunctionEnum))) {
         if (function.ToLower().StartsWith(func.ToLower())) {
@@ -17,10 +17,8 @@ namespace Parser {
       }
       return false;
     }
-    public FunctionEnum Func { get; set; }
-    public Term Term;
 
-    public Function(string function, string[] ids, ParsTreeNode parent)
+    public FunctionParser(string function, string[] ids, ParsTreeNode parent)
         : base(function, ids, parent) {
 
       foreach (string func in Enum.GetNames(typeof(FunctionEnum))) {
@@ -32,45 +30,46 @@ namespace Parser {
         }
       }
     }
+
     public override double CalculateValue(double[] idsValue) {
       double termValue = this.Term.CalculateValue(idsValue);
       double ret = 0;
       switch (Func) {
         case FunctionEnum.Sin:
-          ret = Math.Sin(termValue * Math.PI / 180);
+          ret = Math.Sin(termValue);
           break;
         case FunctionEnum.Cos:
-          ret = Math.Sin(termValue * Math.PI / 180);
+          ret = Math.Sin(termValue);
           break;
         case FunctionEnum.Tan:
-          ret = Math.Tan(termValue * Math.PI / 180);
+          ret = Math.Tan(termValue);
           break;
         case FunctionEnum.Sinh:
-          ret = Math.Sinh(termValue * Math.PI / 180);
+          ret = Math.Sinh(termValue);
           break;
         case FunctionEnum.Cosh:
-          ret = Math.Cosh(termValue * Math.PI / 180);
+          ret = Math.Cosh(termValue);
           break;
         case FunctionEnum.Tanh:
-          ret = Math.Tanh(termValue * Math.PI / 180);
+          ret = Math.Tanh(termValue);
           break;
         case FunctionEnum.Csc:
-          ret = (1 / Math.Sin(termValue * Math.PI / 180));
+          ret = (1 / Math.Sin(termValue));
           break;
         case FunctionEnum.Sic:
-          ret = (1 / Math.Cos(termValue * Math.PI / 180));
+          ret = (1 / Math.Cos(termValue));
           break;
         case FunctionEnum.Cot:
-          ret = (1 / Math.Tan(termValue * Math.PI / 180));
+          ret = (1 / Math.Tan(termValue));
           break;
         case FunctionEnum.Csch:
-          ret = (1 / Math.Sinh(termValue * Math.PI / 180));
+          ret = (1 / Math.Sinh(termValue));
           break;
         case FunctionEnum.Sich:
-          ret = (1 / Math.Cosh(termValue * Math.PI / 180));
+          ret = (1 / Math.Cosh(termValue));
           break;
         case FunctionEnum.Coth:
-          ret = (1 / Math.Tanh(termValue * Math.PI / 180));
+          ret = (1 / Math.Tanh(termValue));
           break;
         case FunctionEnum.E:
           ret = (Math.Exp(termValue));
@@ -156,54 +155,52 @@ namespace Parser {
   }
   public class Factor : ParsTreeNode {
     public enum FactorExpansion {
-      Number,            //1,2,3,etc
-      Function,          //sin,cos,etc
-      MinuFactor,        //-x,-15,-sin,-(x+1),etc
-      WrappedExpression, //(expression)
-      ID                 //x
+      Number,//1,2,3,etc
+      Function,//sin,cos,etc
+      MinuFactor,//-x,-15,-sin,-(x+1),etc
+      WrappedExpression,//(expression)
+      ID//x
     }
     public static bool IsFactor(string factor, string[] ids) {
-      double tst;
-      if (double.TryParse(factor, out tst))
+      if (double.TryParse(factor, out _))
         return true;
       else if (factor.StartsWith("(") && factor.EndsWith(")") && Expression.IsExpression(factor.Substring(1, factor.Length - 2), ids))
         return true;
-      else if (factor.StartsWith("-") && Factor.IsFactor(factor.Substring(1, factor.Length - 1), ids))
+      else if (factor.StartsWith("-") && IsFactor(factor.Substring(1, factor.Length - 1), ids))
         return true;
-      else if (Parser.Function.IsFunction(factor, ids))
+      else if (global::FunctionParser.FunctionParser.IsFunction(factor, ids))
         return true;
       else if (IsID(factor, ids))
         return true;
       else { return false; }
     }
+
     private static bool IsID(string id, string[] ids) {
       foreach (string s in ids) {
-        if (id == s) {
+        if (string.Equals(id, s, StringComparison.OrdinalIgnoreCase)) {
           return true;
         }
-
       }
       return false;
     }
     public FactorExpansion Expansion { get; set; }
-    public Function Function { get; set; }
+    public FunctionParser Function { get; set; }
     public Expression WrappedExpression { get; set; }
     public Factor InnerFactor;
     public Factor(string factor, string[] ids, ParsTreeNode parent)
         : base(factor, ids, parent) {
 
       this.Value = factor;
-      double value;
-      if (double.TryParse(factor, out value)) {
+      if (double.TryParse(factor, out _)) {
 
         this.Expansion = FactorExpansion.Number;
       } else {
         if (factor.StartsWith("(") && factor.EndsWith(")")) {
           this.Expansion = FactorExpansion.WrappedExpression;
           this.WrappedExpression = new Expression(factor.Substring(1, factor.Length - 2), ids, this);
-        } else if (Function.IsFunction(factor, ids)) {
+        } else if (FunctionParser.IsFunction(factor, ids)) {
           this.Expansion = FactorExpansion.Function;
-          this.Function = new Function(factor, ids, this);
+          this.Function = new FunctionParser(factor, ids, this);
 
         } else if (factor.StartsWith("-")) {
           this.Expansion = FactorExpansion.MinuFactor;
@@ -287,7 +284,7 @@ namespace Parser {
         factor = term.Substring(oprIndx + 1);
         return Term.IsTerm(subterm, ids) && Factor.IsFactor(factor, ids);
       } else {
-        return Parser.Factor.IsFactor(term, ids);
+        return global::FunctionParser.Factor.IsFactor(term, ids);
       }
 
     }
@@ -384,9 +381,9 @@ namespace Parser {
         string subExpr, term;
         subExpr = expr.Substring(0, oprIndx);
         term = expr.Substring(oprIndx + 1);
-        return (Parser.Term.IsTerm(term, ids) && IsExpression(subExpr, ids));
+        return (Term.IsTerm(term, ids) && IsExpression(subExpr, ids));
       } else {
-        return Parser.Term.IsTerm(expr, ids);
+        return Term.IsTerm(expr, ids);
       }
     }
     static bool IsOperator(char c) {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace math_in.Models.CoordinateDescent {
-  internal class CoordinateDescent : Function {
+  internal class CoordinateDescent : Func {
     public static double CoordinateDescentLocMin(double a, double b, double e) {
       double x = a;
 

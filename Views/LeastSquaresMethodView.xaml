@@ -5,10 +5,135 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:math_in.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="LeastSquaresMethodView">
+      d:DesignHeight="460" d:DesignWidth="800" Background="White" Title="LeastSquaresMethodView">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.56*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Background="LightGray" Margin="0,5,0,5" FontFamily="Arial" FontSize="15" TextAlignment="Center">Введите формулу</TextBlock>
+                <TextBox   Grid.Row="1" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="15" />
+                <Button    Grid.Row="2" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="13" Content="Посчитать значения найденной функции" Click="Calculate_First_Button_Click"/>
+                <TextBlock Grid.Row="3" Background="LightGray" Margin="0,5,0,5" FontFamily="Arial" FontSize="15" TextAlignment="Center">Результат</TextBlock>
+                <TextBox   Grid.Row="4" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="15" IsReadOnly="True"/>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Background="LightGray" Margin="0,5,0,5" FontFamily="Arial" FontSize="15" TextAlignment="Center">Введите формулу</TextBlock>
+                <TextBox   Grid.Row="1" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="15" />
+                <Button    Grid.Row="2" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="13" Content="Посчитать значения найденной функции" Click="Calculate_Second_Button_Click"/>
+                <TextBlock Grid.Row="3" Background="LightGray" Margin="0,5,0,5" FontFamily="Arial" FontSize="15" TextAlignment="Center">Результат</TextBlock>
+                <TextBox   Grid.Row="4" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="15" IsReadOnly="True"/>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Background="LightGray" Margin="0,5,0,5" FontFamily="Arial" FontSize="15" TextAlignment="Center">Введите формулу</TextBlock>
+                <TextBox   Grid.Row="1" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="15" />
+                <Button    Grid.Row="2" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="13" Content="Посчитать значения найденной функции" Click="Calculate_Third_Button_Click"/>
+                <TextBlock Grid.Row="3" Background="LightGray" Margin="0,5,0,5" FontFamily="Arial" FontSize="15" TextAlignment="Center">Результат</TextBlock>
+                <TextBox   Grid.Row="4" Background="LightGray" Margin="5"       FontFamily="Arial" FontSize="15" IsReadOnly="True"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <CheckBox Name="СheckBox_Linear_Regression"    Grid.Row="0" Content="Линейная регрессия"       Margin="5,0,0,0" FontFamily="Arial" FontSize="16"/>
+                <CheckBox Name="СheckBox_Parabolic_Regression" Grid.Row="1" Content="Параболическая регрессия" Margin="5,0,0,0" FontFamily="Arial" FontSize="16"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <CheckBox Name="СheckBox_Exponential_Regression" Grid.Row="1" Content="Параболическая регрессия" Margin="5,0,0,0" FontFamily="Arial" FontSize="16"/>
+            </Grid>
+
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+ 
+                <Button Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Заполнить случайными значениями" Margin="5,5,5,5"  FontFamily="Arial" FontSize="13" Click="Random_Values_Button_Click"/>
+                <Button Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Найти параметры"                       Margin="5,5,5,5"  FontFamily="Arial" FontSize="13" Click="Calculate_Button_Click"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.49*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Background="LightGray" FontSize="20" FontFamily="Arial" TextAlignment="Center" Margin="0,0,0,5">График</TextBlock>
+
+                <Grid Grid.Row="1">
+                    
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Background="LightGray" FontSize="20" FontFamily="Arial" TextAlignment="Center"  Margin="0,0,0,5">Таблица</TextBlock>
+
+                <Grid Grid.Row="1">
+
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

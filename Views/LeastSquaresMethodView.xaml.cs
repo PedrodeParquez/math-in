@@ -1,4 +1,5 @@
-﻿using System;
+﻿using math_in.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,31 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace math_in.Views {
-  /// <summary>
-  /// Логика взаимодействия для LeastSquaresMethodView.xaml
-  /// </summary>
   public partial class LeastSquaresMethodView : Page {
     public LeastSquaresMethodView() {
       InitializeComponent();
     }
+
+    private void Calculate_First_Button_Click(object sender, RoutedEventArgs e) {
+
+    }
+
+    private void Calculate_Second_Button_Click(object sender, RoutedEventArgs e) {
+
+    }
+
+    private void Calculate_Third_Button_Click(object sender, RoutedEventArgs e) {
+
+    }
+
+    private void Random_Values_Button_Click(object sender, RoutedEventArgs e) {
+
+    }
+
+    private void Calculate_Button_Click(object sender, RoutedEventArgs e) {
+
+    }
+
+    
   }
 }

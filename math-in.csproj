@@ -98,6 +98,12 @@
       <HintPath>packages\OxyPlot.Wpf.Shared.2.1.2\lib\net45\OxyPlot.Wpf.Shared.dll</HintPath>
     </Reference>
     <Reference Include="ReachFramework" />
+    <Reference Include="ScottPlot, Version=4.1.69.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.4.1.69\lib\net462\ScottPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="ScottPlot.WPF, Version=4.1.69.0, Culture=neutral, PublicKeyToken=e53b06131e34a3aa, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.WPF.4.1.69\lib\net472\ScottPlot.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
@@ -120,6 +126,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.4.7.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -130,6 +140,11 @@
     <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -144,6 +159,9 @@
     </Reference>
     <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -165,10 +183,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\CoordinateDescent\CoordinateDescent.cs" />
-    <Compile Include="Models\Function.cs" />
+    <Compile Include="Models\Func.cs" />
+    <Compile Include="Models\IntegralMethods\MethodRectangle.cs" />
+    <Compile Include="Models\IntegralMethods\MethodTrapezoid.cs" />
+    <Compile Include="Models\IntegralMethods\MethodSimpson.cs" />
+    <Compile Include="Models\IntegralMethods\SearchN.cs" />
     <Compile Include="Models\MethodDichtomii\MethodDichtomii.cs" />
     <Compile Include="Models\MethodNuiton\MethodNuiton.cs" />
-    <Compile Include="Models\Parser\FunctionParser.cs" />
+    <Compile Include="Models\FunctionParser\FunctionParser.cs" />
     <Compile Include="Models\SLAE\SlaeMethods.cs" />
     <Compile Include="Models\Sorting\BogoSorting.cs" />
     <Compile Include="Models\Sorting\BubbleSorting.cs" />
@@ -186,7 +208,10 @@
     <Compile Include="Views\LeastSquaresMethodView.xaml.cs">
       <DependentUpon>LeastSquaresMethodView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MessageBox_Sorting.xaml.cs">
+    <Compile Include="Views\MessageBoxes\MessageBox_LeastSquaresMethod.xaml.cs">
+      <DependentUpon>MessageBox_LeastSquaresMethod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageBoxes\MessageBox_Sorting.xaml.cs">
       <DependentUpon>MessageBox_Sorting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NuitonView.xaml.cs">
@@ -229,7 +254,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MessageBox_Sorting.xaml">
+    <Page Include="Views\MessageBoxes\MessageBox_LeastSquaresMethod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageBoxes\MessageBox_Sorting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

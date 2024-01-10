@@ -1,4 +1,5 @@
-﻿using math_in.Views;
+﻿using math_in.Models;
+using math_in.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,10 @@ using System.Windows.Shapes;
 namespace math_in {
   public partial class MainWindow : Window {
     public MainWindow() {
+      Func.idsNames = new string[] { "x", "e" };
+      Func.idsValues = new double[] { default, Math.E };
       InitializeComponent();
-      MainFrame.Content = new SLAEView();
+      MainFrame.Content = new DefiniteIntegralView();
     }
 
     //Tool bar
