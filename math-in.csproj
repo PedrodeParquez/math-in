@@ -188,6 +188,8 @@
     <Compile Include="Models\IntegralMethods\MethodTrapezoid.cs" />
     <Compile Include="Models\IntegralMethods\MethodSimpson.cs" />
     <Compile Include="Models\IntegralMethods\SearchN.cs" />
+    <Compile Include="Models\LeastSquaresMethod\DataItem.cs" />
+    <Compile Include="Models\LeastSquaresMethod\LeastSquaresMethod.cs" />
     <Compile Include="Models\MethodDichtomii\MethodDichtomii.cs" />
     <Compile Include="Models\MethodNuiton\MethodNuiton.cs" />
     <Compile Include="Models\FunctionParser\FunctionParser.cs" />
@@ -223,6 +225,10 @@
     <Compile Include="Views\SortingView.xaml.cs">
       <DependentUpon>SortingView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\ResourcesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CoordinateDescentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -302,9 +308,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Image\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

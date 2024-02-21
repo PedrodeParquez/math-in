@@ -108,13 +108,13 @@
                 <ColumnDefinition Width="221*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Margin ="5,5,5,5" Content="Метод Дихтомии"             Style="{StaticResource Base}" Click="DichtomyViewButton_Click" Grid.ColumnSpan="2" />
-            <Button Grid.Column="2" Margin ="5,5,5,5" Content="Метод Ньютона"              Style="{StaticResource Base}" Click="NuitonViewButton_Click"/>
-            <Button Grid.Column="3" Margin ="5,0,5,0" Content="Сортировки"                 Style="{StaticResource Base}" Click="SortingViewButton_Click" Height="27" VerticalAlignment="Center"  />
-            <Button Grid.Column="4" Margin ="5,5,5,5" Content="Покоординатный спуск"       Style="{StaticResource Base}" Click="CoordinateDescentViewButton_Click"/>
-            <Button Grid.Column="5" Margin ="5,5,5,5" Content="Определённый интеграл"      Style="{StaticResource Base}" Click="DefiniteIntegralButton_Click"/>
-            <Button Grid.Column="6" Margin ="5,0,5,0" Content="СЛАУ"                       Style="{StaticResource Base}" Click="SLAEViewButton_Click" Height="27" VerticalAlignment="Center" />
-            <Button Grid.Column="7" Margin ="5,5,5,5" Content="Метод наименьних квадратов" Style="{StaticResource Base}" Click="LeastSquaresMethodViewButton_Click"/>
+            <Button Grid.Column="0" Margin ="5,5,5,5" Content="Метод Дихтомии"             Style="{StaticResource Base}" Click="DichtomyViewButton_Click" Grid.ColumnSpan="2" Name="Dichtomy_Method"/>
+            <Button Grid.Column="2" Margin ="5,5,5,5" Content="Метод Ньютона"              Style="{StaticResource Base}" Click="NuitonViewButton_Click" Name="Nuiton_Method"/>
+            <Button Grid.Column="3" Margin ="5,0,5,0" Content="Сортировки"                 Style="{StaticResource Base}" Click="SortingViewButton_Click" Height="27" VerticalAlignment="Center" Name="Sorting_Method"/>
+            <Button Grid.Column="4" Margin ="5,5,5,5" Content="Покоординатный спуск"       Style="{StaticResource Base}" Click="CoordinateDescentViewButton_Click" Name="CoordinateDescent_Method"/>
+            <Button Grid.Column="5" Margin ="5,5,5,5" Content="Определённый интеграл"      Style="{StaticResource Base}" Click="DefiniteIntegralButton_Click" Name="Integral_Method"/>
+            <Button Grid.Column="6" Margin ="5,0,5,0" Content="СЛАУ"                       Style="{StaticResource Base}" Click="SLAEViewButton_Click" Height="27" VerticalAlignment="Center" Name="SLAE_Method" />
+            <Button Grid.Column="7" Margin ="5,5,5,5" Content="Метод наименьних квадратов" Style="{StaticResource Base}" Click="LeastSquaresMethodViewButton_Click" Name="LeastSquares_Method"/>
         </Grid>
 
         <Frame Name="MainFrame"  Grid.Row="2" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" />

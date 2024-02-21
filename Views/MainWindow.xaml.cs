@@ -1,19 +1,10 @@
 ﻿using math_in.Models;
 using math_in.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace math_in {
   public partial class MainWindow : Window {
@@ -21,7 +12,24 @@ namespace math_in {
       Func.idsNames = new string[] { "x", "e" };
       Func.idsValues = new double[] { default, Math.E };
       InitializeComponent();
-      MainFrame.Content = new DefiniteIntegralView();
+      MainFrame.Content = new LeastSquaresMethodView();
+      previousButton = LeastSquares_Method;
+      LeastSquares_Method.Background = Brushes.Gray;
+    }
+
+    //Handler Buttons
+    private Button previousButton;
+
+    private void ChangeColor(Button button) {
+      if (previousButton != null) {
+        previousButton.Background = Brushes.LightGray;
+      }
+      button.Background = Brushes.Gray;
+      previousButton = button;
+    }
+
+    private void SelectedTab(Button button) {
+      ChangeColor(button);
     }
 
     //Tool bar
@@ -46,30 +54,37 @@ namespace math_in {
     //Task bar
     private void DichtomyViewButton_Click(object sender, RoutedEventArgs e) {
       MainFrame.Content = new DichtomyView();
+      SelectedTab((Button)sender);
     }
 
     private void NuitonViewButton_Click(object sender, RoutedEventArgs e) {
       MainFrame.Content = new NuitonView();
+      SelectedTab((Button)sender);
     }
 
     private void SortingViewButton_Click(object sender, RoutedEventArgs e) {
       MainFrame.Content = new SortingView();
+      SelectedTab((Button)sender);
     }
 
     private void CoordinateDescentViewButton_Click(object sender, RoutedEventArgs e) {
       MainFrame.Content = new CoordinateDescentView();
+      SelectedTab((Button)sender);
     }
 
     private void DefiniteIntegralButton_Click(object sender, RoutedEventArgs e) {
       MainFrame.Content = new DefiniteIntegralView();
+      SelectedTab((Button)sender);
     }
 
     private void SLAEViewButton_Click(object sender, RoutedEventArgs e) {
       MainFrame.Content = new SLAEView();
+      SelectedTab((Button)sender);
     }
 
     private void LeastSquaresMethodViewButton_Click(object sender, RoutedEventArgs e) {
       MainFrame.Content = new LeastSquaresMethodView();
+      SelectedTab((Button)sender);
     }
   }
 }

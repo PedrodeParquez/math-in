@@ -8,6 +8,14 @@
       d:DesignHeight="460" d:DesignWidth="900"
       Title="SLAEView">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ResourcesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.8*"/>
@@ -54,8 +62,8 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBox   FontSize="15" Margin="5"         Grid.Column="0" Background="LightGray"  FontFamily="Arial"  IsReadOnly="True"/>
-                    <TextBox   FontSize="15" Margin="5"         Grid.Column="1" Background="LightGray"  FontFamily="Arial"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="TextBox_Size_Enter"/>
-                    <TextBlock FontSize="15" Margin="54,0,10,0" Grid.Column="0" Background="LightGray"  FontFamily="Arial"  VerticalAlignment="Center">Введите размер</TextBlock>
+                    <TextBox   FontSize="18" Margin="5"         Grid.Column="1" Background="LightGray"  FontFamily="Arial"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="TextBox_Size_Enter"  BorderBrush="Transparent" BorderThickness="0" CaretBrush="Transparent"/>
+                    <TextBlock FontSize="15" Margin="54,0,10,0" Grid.Column="0" Background="LightGray"  FontFamily="Arial"  VerticalAlignment="Center">Введите размер</TextBlock >
                 </Grid>
 
                 <Grid Grid.Row="2">
@@ -64,12 +72,12 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="0" Content="Создать форму"  Margin="5" FontSize="15" FontFamily="Arial" Click="Generate_Form_Button_Click"/>
-                    <Button Grid.Column="1" Content="Очистить форму" Margin="5" FontSize="15" FontFamily="Arial" Click="Clear_Form_Button_Click"/>
+                    <Button Grid.Column="0" Content="Создать форму"  Margin="5" FontSize="15" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Generate_Form_Button_Click"/>
+                    <Button Grid.Column="1" Content="Очистить форму" Margin="5" FontSize="15" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Clear_Form_Button_Click"/>
                 </Grid>
 
-                <Button Grid.Row="4" Content="Посчитать"          Margin="5" FontSize="15" FontFamily="Arial" Click="Calculate_Buttton_Click"/>
-                <Button Grid.Row="3" Content="Случайные значения" Margin="5" FontSize="15" FontFamily="Arial" Click="Random_Values_Button_Click"/>
+                <Button Grid.Row="4" Content="Посчитать"          Margin="5" FontSize="15" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Calculate_Buttton_Click"/>
+                <Button Grid.Row="3" Content="Случайные значения" Margin="5" FontSize="15" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Random_Values_Button_Click"/>
             </Grid>
 
             <Grid Grid.Column="1">
@@ -83,11 +91,11 @@
                         <RowDefinition/>
                         <RowDefinition Height="5*"/>
                     </Grid.RowDefinitions>
+                    
                     <TextBlock FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Arial" Height="23" Width="106" Margin="189,1,0,0" Grid.RowSpan="2">Результаты</TextBlock>
-
                 </Grid>
-                <TextBox Name="TextBox_Result" Background="LightGray" Margin="5,38,5,6" IsReadOnly="True" Grid.RowSpan="2" FontSize="18"/>
 
+                <TextBox Name="TextBox_Result" Background="LightGray" Margin="5,38,5,6" Grid.RowSpan="2" FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderBrush="Transparent" BorderThickness="0"/>
             </Grid>
 
 

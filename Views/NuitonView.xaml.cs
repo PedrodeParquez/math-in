@@ -1,21 +1,9 @@
 ﻿using math_in.Models;
 using math_in.Models.MethodNuiton;
-using ScottPlot;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace math_in.Views {
   public partial class NuitonView : Page {
@@ -23,7 +11,7 @@ namespace math_in.Views {
       InitializeComponent();
     }
 
-    private void Calculate_Nuiton_Button_Click(object sender, RoutedEventArgs e) {
+    private void Calculate_Button_Click(object sender, RoutedEventArgs e) {
       if (!double.TryParse(TextBox_Start_Point.Text, out Func.a)) {
         MessageBox.Show("Неправильный формат данных для начальной точки!");
         return;

@@ -8,6 +8,14 @@
       d:DesignHeight="550" d:DesignWidth="900"
       Title="SortingView">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ResourcesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -34,23 +42,21 @@
             </Grid>
 
 
-            <TextBox x:Name="TextBox_Array" Grid.Column="1" Background="LightGray" Margin="0,0,5,0"  FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="TextBox_Array" Grid.Column="1" Background="LightGray" Margin="0,0,5,0"  FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderBrush="Transparent" BorderThickness="0"/>
         </Grid>
-
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="18*"/>
-                <ColumnDefinition Width="55"/>
-                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="54*"/>
                 <ColumnDefinition Width="54*"/>
                 <ColumnDefinition Width="54*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="TextBox_Add_Element" Grid.Column="0" Margin="5,5,5,5" Background="LightGray" FontSize="18" BorderThickness="0,0,0,0" CaretBrush="Transparent"/>
-            <Button Grid.Column="1" Margin="0,5,5,5"  Content="Добавить элемент" FontSize="15" Grid.ColumnSpan="2" Click="Button_Add_Element_Click"/>
-            <Button Grid.Column="3" Margin="5,5,5,5"  Content="Очистить массив"  FontSize="15" Click="Button_Clear_Array_Click"/>
-            <Button Grid.Column="4" Margin="5,5,5,5"  Content="Случайный массив" FontSize="15" Click="Button_Random_Array_Click"/>
+            <TextBox Grid.Column="0" Name="TextBox_Add_Element" Margin="5,5,5,5" FontSize="18" FontFamily="Arial" Background="LightGray" BorderThickness="0" CaretBrush="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button  Grid.Column="1" Content="Добавить элемент" Margin="0,5,5,5" FontSize="15" Style="{StaticResource GrayButtonStyle}" Click="Button_Add_Element_Click" />
+            <Button  Grid.Column="2" Content="Очистить массив"  Margin="5,5,5,5" FontSize="15" Style="{StaticResource GrayButtonStyle}" Click="Button_Clear_Array_Click"/>
+            <Button  Grid.Column="3" Content="Случайный массив" Margin="5,5,5,5" FontSize="15" Style="{StaticResource GrayButtonStyle}" Click="Button_Random_Array_Click"/>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -84,7 +90,7 @@
             </Grid>
 
             <CheckBox x:Name="CheckBox_Bogo" Grid.Column="2" Content="Сортировка Bogo"  FontSize="15"/>
-            <Button   Grid.Column="3" Content="Cортировать" Margin="5,5,5,5" FontSize="15" Click="Button_Sorting_Click"/>
+            <Button   Grid.Column="3" Content="Cортировать" Margin="5,5,5,5" FontSize="15" Click="Button_Sorting_Click" Style="{StaticResource GrayButtonStyle}"/>
         </Grid>
 
         <Grid Grid.Row="3">
@@ -104,7 +110,7 @@
                 <TextBlock Grid.Column="0" Grid.Row="1" Text="массив"   Margin="0,0,0,8" TextAlignment="Center" VerticalAlignment="Center" FontSize="17"/>
             </Grid>
 
-            <TextBox x:Name="TextBox_Result" Grid.Column="1" Background="LightGray" Margin="0,5,5,0"  FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="TextBox_Result" Grid.Column="1" Background="LightGray" Margin="0,5,5,0"  FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderBrush="Transparent" BorderThickness="0"/>
         </Grid>
 
         <WpfPlot Name="Chart" Grid.Row="5" Grid.ColumnSpan="2" Margin="0,10,0,-10"/>

@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 namespace math_in.Views.MessagBoxes {
   public partial class MessageBox_LeastSquaresMethod : Window {
 
-    public int AmountPoints { get; private set; }
-    public int MinNumber    { get; private set; }
-    public int MaxNumber    { get; private set; }
+    public double AmountPoints { get; private set; }
+    public double MinNumber    { get; private set; }
+    public double MaxNumber    { get; private set; }
 
 
     public MessageBox_LeastSquaresMethod() {
@@ -25,25 +25,31 @@ namespace math_in.Views.MessagBoxes {
     }
 
     private void OK_Button_Click(object sender, RoutedEventArgs e) {
-      if (int.TryParse(TextBox_Amount_Points.Text, out int firstValue)) {
+      if (TextBox_Max_Value.Text == "" && TextBox_Min_Value.Text == "" && TextBox_Amount_Points.Text == "") {
+        DialogResult = false;
+        return;
+      }
+
+
+      if (double.TryParse(TextBox_Amount_Points.Text, out double firstValue)) {
         AmountPoints = firstValue;    
       } else {
-        MessageBox.Show("Введите корректное число!", "Ошибка");
+        MessageBox.Show("Введите корректное число элементов!", "Ошибка");
       }
 
-      if (int.TryParse(TextBox_Min_Value.Text, out int secondValue)) {
+      if (double.TryParse(TextBox_Min_Value.Text, out double secondValue)) {
         MinNumber = secondValue;
       } else {
-        MessageBox.Show("Введите корректное число!", "Ошибка");
+        MessageBox.Show("Введите корректное минимальное число!", "Ошибка");
       }
 
-      if (int.TryParse(TextBox_Max_Value.Text, out int thirdValue)) {
+      if (double.TryParse(TextBox_Max_Value.Text, out double thirdValue)) {
         MaxNumber = thirdValue;
       } else {
-        MessageBox.Show("Введите корректное число!", "Ошибка");
+        MessageBox.Show("Введите корректное максимальное число!", "Ошибка");
       }
 
-      Close();
+      DialogResult = true;
     }
   }
 }
