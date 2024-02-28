@@ -205,7 +205,6 @@ namespace math_in.Views {
       }
 
       bool exp  = true;
-
       double[] yval = YValues.ToArray();
 
       for (int i = 0; i < yval.Length; i++) {

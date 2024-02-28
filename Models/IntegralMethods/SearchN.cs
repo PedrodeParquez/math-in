@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace math_in.Models.IntegralMethods {
   public class SearchN {
@@ -14,14 +10,6 @@ namespace math_in.Models.IntegralMethods {
         if (!flag) {
           return -1;
         }
-
-        decimal bruh1 = Math.Round((decimal)valintegral, Math.Abs((int)Math.Log10(e)));
-        decimal bruhleft = (decimal)integralMethod(a, b, e, left);
-        decimal bruhLeft = Math.Round((decimal)integralMethod(a, b, e, left), Math.Abs((int)Math.Log10(e)));
-        decimal bruhn = (decimal)integralMethod(a, b, e, N);
-        decimal bruhN = Math.Round((decimal)integralMethod(a, b, e, N), Math.Abs((int)Math.Log10(e)));
-        decimal bruhright = (decimal)integralMethod(a, b, e, right);
-        decimal bruhRight = Math.Round((decimal)integralMethod(a, b, e, right), Math.Abs((int)Math.Log10(e)));
 
         if (Math.Round((decimal)valintegral, Math.Abs((int)Math.Log10(e))) == Math.Round((decimal)integralMethod(a, b, e, left), Math.Abs((int)Math.Log10(e)))) {
           return left;

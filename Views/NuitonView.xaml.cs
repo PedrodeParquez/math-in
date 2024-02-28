@@ -1,7 +1,8 @@
 ﻿using math_in.Models;
+using math_in.Models.InputHandler;
 using math_in.Models.MethodNuiton;
 using System;
-using System.Text.RegularExpressions;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,25 +13,7 @@ namespace math_in.Views {
     }
 
     private void Calculate_Button_Click(object sender, RoutedEventArgs e) {
-      if (!double.TryParse(TextBox_Start_Point.Text, out Func.a)) {
-        MessageBox.Show("Неправильный формат данных для начальной точки!");
-        return;
-      }
-
-      if (!double.TryParse(TextBox_End_Point.Text, out Func.b)) {
-        MessageBox.Show("Неправильный формат данных для конечной точки!");
-        return;
-      }
-
-      if (Func.a > Func.b) {
-        MessageBox.Show("Начальная точка должна быть меньше или равна конечной!");
-        return;
-      }
-
-      if (!Regex.IsMatch(TextBox_Precision.Text, @"(1|10+)|(0,(1|0+1))")
-         || (!double.TryParse(TextBox_Precision.Text, out Func.e)
-         || TextBox_Precision.Text[0] == '-')) {
-        MessageBox.Show("Неправильный формат данных для точности!");
+      if (!InputHandler.IsCorrectInput(TextBox_Function, TextBox_Start_Point, TextBox_End_Point, TextBox_Precision)) {
         return;
       }
 
@@ -42,8 +25,7 @@ namespace math_in.Views {
       }
 
       Func.x = Func.a;
-
-      double pointXMin = default;
+      double pointXMin;
 
       try {
         pointXMin = Math.Round(MethodNuiton.Nutone(Func.a, Func.b, Func.e), Math.Abs((int)Math.Log10(Func.e)));
@@ -58,7 +40,6 @@ namespace math_in.Views {
       }
 
       double pointYMin = Func.Fun(pointXMin);
-
       TextBlock_Result.Text = $"Экстремум функции на отрезке [{Func.a}; {Func.b}]:\n\tx = {pointXMin}\n\ty = " + $"{pointYMin}\n\n";
 
       if (MethodNuiton.Derivative2(pointXMin) > 0) {
@@ -86,11 +67,10 @@ namespace math_in.Views {
       }
 
       double pointY = Math.Truncate(Func.Fun(pointX));
-
       TextBlock_Result.Text += $"Решение уравнения f(x) = 0 на отрезке [{Func.a}; {Func.b}]:\n\tx = {pointX}\n\ty = {pointY}\n\n\t";
 
       var (xValues, yValues) = Func.CalculateFunctionValuesInRange();
-      Chart.Plot.AddScatter(xValues, yValues);
+      Chart.Plot.AddScatter(xValues, yValues, color: Color.Orange);
       Chart.Refresh();
     }
   }

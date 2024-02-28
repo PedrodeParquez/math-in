@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:math_in.Views"
       mc:Ignorable="d" Background="White"
-      d:DesignHeight="460" d:DesignWidth="900"
+      d:DesignHeight="600" d:DesignWidth="900"
       Title="SLAEView">
 
     <Page.Resources>
@@ -43,7 +43,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" Background="LightGray" Margin="0,5,0,4">
+                <Grid Grid.Row="0" Background="LightGray" Margin="5,5,0,4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="1.2*"/>
@@ -52,7 +52,7 @@
 
                     <CheckBox Name="CheckBox_Method_Gauss"    Grid.Column="0" Content="Метод Гауса"         VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
                     <CheckBox Name="CheckBox_Method_Cramer"   Grid.Column="1" Content="Метода Крамера"      VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
-                    <CheckBox Name="CheckBox_Method_Jordano" Grid.Column="2" Content="Метод Жордана Гауса" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <CheckBox Name="CheckBox_Method_Jordano"  Grid.Column="2" Content="Метод Жордана Гауса" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -82,20 +82,21 @@
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="39*"/>
-                    <RowDefinition Height="125*"/>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="167*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" Background="LightGray" Margin="-2,5,0,10">
+                <Grid Grid.Row="0" Background="LightGray" Margin="0,5,5,8.2">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="5*"/>
                     </Grid.RowDefinitions>
-                    
-                    <TextBlock FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Arial" Height="23" Width="106" Margin="189,1,0,0" Grid.RowSpan="2">Результаты</TextBlock>
+
+                    <TextBlock FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Arial" Height="29" Width="125" Margin="0,2,0,0" Grid.RowSpan="2">Результаты</TextBlock>
                 </Grid>
 
-                <TextBox Name="TextBox_Result" Background="LightGray" Margin="5,38,5,6" Grid.RowSpan="2" FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderBrush="Transparent" BorderThickness="0"/>
+                <TextBox Name="TextBox_Result" Background="LightGray" Margin="5,0.7,5,6" FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderBrush="Transparent" BorderThickness="0" Grid.Row="2"/>
             </Grid>
 
 

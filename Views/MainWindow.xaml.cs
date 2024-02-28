@@ -24,7 +24,7 @@ namespace math_in {
       if (previousButton != null) {
         previousButton.Background = Brushes.LightGray;
       }
-      button.Background = Brushes.Gray;
+      button.Background = Brushes.DarkGray;
       previousButton = button;
     }
 

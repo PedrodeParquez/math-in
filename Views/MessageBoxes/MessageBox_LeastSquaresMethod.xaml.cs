@@ -30,7 +30,6 @@ namespace math_in.Views.MessagBoxes {
         return;
       }
 
-
       if (double.TryParse(TextBox_Amount_Points.Text, out double firstValue)) {
         AmountPoints = firstValue;    
       } else {

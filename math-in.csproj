@@ -183,16 +183,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\CoordinateDescent\CoordinateDescent.cs" />
-    <Compile Include="Models\Func.cs" />
+    <Compile Include="Models\Function\Func.cs" />
+    <Compile Include="Models\InputHandler\InputHandler.cs" />
     <Compile Include="Models\IntegralMethods\MethodRectangle.cs" />
     <Compile Include="Models\IntegralMethods\MethodTrapezoid.cs" />
     <Compile Include="Models\IntegralMethods\MethodSimpson.cs" />
     <Compile Include="Models\IntegralMethods\SearchN.cs" />
     <Compile Include="Models\LeastSquaresMethod\DataItem.cs" />
     <Compile Include="Models\LeastSquaresMethod\LeastSquaresMethod.cs" />
-    <Compile Include="Models\MethodDichtomii\MethodDichtomii.cs" />
+    <Compile Include="Models\MethodDichtomii\MethodDichtomy.cs" />
     <Compile Include="Models\MethodNuiton\MethodNuiton.cs" />
-    <Compile Include="Models\FunctionParser\FunctionParser.cs" />
+    <Compile Include="Models\Function\FunctionParser.cs" />
     <Compile Include="Models\SLAE\SlaeMethods.cs" />
     <Compile Include="Models\Sorting\BogoSorting.cs" />
     <Compile Include="Models\Sorting\BubbleSorting.cs" />

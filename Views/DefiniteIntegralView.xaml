@@ -2,10 +2,9 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:math_in.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="900" Title="DefiniteIntegralView" Background="White">
+      d:DesignHeight="600" d:DesignWidth="900" Title="DefiniteIntegralView" Background="White">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -22,12 +21,12 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="305"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="375"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -36,13 +35,11 @@
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" Text="Формула" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="5,0,5,6"/>
-
-
-            <TextBox Name="TextBox_Function" Grid.Column="1" Background="LightGray" Margin="0,5,5,5" FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
+            <TextBlock Text="Формула"          FontSize="17" Margin="5,0,5,0" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox   Name="TextBox_Function" FontSize="20" Margin="0,5,5,5" FontFamily="Arial" Grid.Column="1" Background="LightGray" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="0">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.1*"/>
                 <ColumnDefinition Width="4*"/>
@@ -54,12 +51,11 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Text="Нижний"     TextAlignment="Center" VerticalAlignment="Bottom" FontSize="15" />
-                <TextBlock Grid.Column="0" Text="предел"     TextAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="0,10,0,0" Grid.RowSpan="2"/>
+                <TextBlock Text="Нижний" TextAlignment="Center" VerticalAlignment="Top" FontSize="17" FontFamily="Arial" Margin="0,3,0,0"/>
+                <TextBlock Text="предел" TextAlignment="Center" VerticalAlignment="Top" FontSize="17" FontFamily="Arial" Margin="0,18,0,0" Grid.RowSpan="2"/>
             </Grid>
 
-
-            <TextBox Name="TextBox_Lower_Limit" Grid.Column="1" Background="LightGray" Margin="0,5,5,5" FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
+            <TextBox Name="TextBox_Lower_Limit" Grid.Column="1" Background="LightGray" Margin="0,5,5,5" FontSize="20" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -75,11 +71,11 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Text="Верхний" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Margin="0,0,0,0"/>
-                <TextBlock Grid.Column="0" Text="предел"    TextAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="0,10,0,0" Grid.RowSpan="2"/>
+                <TextBlock Text="Верхний" TextAlignment="Center" VerticalAlignment="Top" FontSize="17" FontFamily="Arial" Margin="0,4,0,0"  Grid.RowSpan="2"/>
+                <TextBlock Text="предел"  TextAlignment="Center" VerticalAlignment="Top" FontSize="17" FontFamily="Arial" Margin="0,20,0,0" Grid.RowSpan="2"/>
             </Grid>
 
-            <TextBox Name="TextBox_Upper_Limit" Background="LightGray" Margin="88,5,5,5" Grid.ColumnSpan="3" FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
+            <TextBox Name="TextBox_Upper_Limit" Background="LightGray" Margin="88,5,5,5" Grid.ColumnSpan="3" FontSize="20" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
         </Grid>
 
         <Grid Grid.Row="3">
@@ -88,10 +84,8 @@
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" Text="Точность" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="5,0,5,6"/>
-
-
-            <TextBox Name="TextBox_Precision" Grid.Column="1" Background="LightGray" Margin="0,5,5,5" FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
+            <TextBlock Text="Точность"          FontSize="18" Margin="5,0,5,0" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox   Name="TextBox_Precision" FontSize="20" Margin="0,5,5,5" FontFamily="Arial" Grid.Column="1" Background="LightGray" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
         </Grid>
 
         <Grid Grid.Row="4">
@@ -107,35 +101,32 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Text="Количество"   TextAlignment="Center" VerticalAlignment="Bottom" FontSize="15"/>
-                <TextBlock Grid.Column="0" Text="разбиений"    TextAlignment="Center" VerticalAlignment="Top" FontSize="15" Grid.RowSpan="2" Margin="0,10,0,0"/>
+                <TextBlock Text="Количество" TextAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" FontSize="15" Margin="0,5,0,0"/>
+                <TextBlock Text="разбиений"  TextAlignment="Center" FontFamily="Arial" VerticalAlignment="Top" FontSize="15" Margin="0,20,0,0" Grid.RowSpan="2"/>
             </Grid>
 
-            <TextBox Name="TextBox_Number_Splits" Background="LightGray" Margin="88,5,5,5" Grid.ColumnSpan="3" FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
+            <TextBox Name="TextBox_Number_Splits" Background="LightGray" Margin="88,5,5,5" Grid.ColumnSpan="3" FontSize="20" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0"/>
         </Grid>
 
-        <Grid Grid.Row="3" Grid.Column="1" Margin="5,0,0,0">
+        <Grid Grid.Row="3" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
                 <RowDefinition Height="13*"/>
-                <RowDefinition Height="0*"/>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="19*"/>
             </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.25*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <CheckBox Name="CheckBox_Method_Rectangle" Content="Метод Прямоугольника" Grid.Column="0" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Center" Width="187" Margin="0,6,0,0" Grid.RowSpan="4" Grid.Row="1"/>
-            <CheckBox Name="CheckBox_Method_Trapezoid" Content="Метод Трапеции"       Grid.Column="1" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,6,0,0" Grid.RowSpan="4" Grid.Row="1"/>
-            <CheckBox Name="CheckBox_Method_Simpson"   Content="Метод Симпсона"       Grid.Column="2" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,6,0,0" Grid.RowSpan="4" Grid.Row="1"/>
+            <CheckBox Name="CheckBox_Method_Rectangle" Content="Метод Прямоугольника" Grid.Column="0" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"   Grid.Row="4" Width="187" Margin="4,0,0,0" Grid.ColumnSpan="2"/>
+            <CheckBox Name="CheckBox_Method_Trapezoid" Content="Метод Трапеции"       Grid.Column="1" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4"/>
+            <CheckBox Name="CheckBox_Method_Simpson"   Content="Метод Симпсона"       Grid.Column="2" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4"/>
         </Grid>
 
-        <Button Grid.Row="4" Grid.Column="1" Content="Посчитать" Margin="10,5,5,5" FontSize="20" FontFamily="Arial" Click="Calculate_Integral_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
-
-        <TextBox Name="TextBlock_Result" Grid.Column= "1" Grid.RowSpan="3" Background="LightGray" Margin="5,5,5,5" FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderBrush="Transparent" BorderThickness="0"/>
-        <WpfPlot Name="Chart" Grid.Row="5" Grid.ColumnSpan="2" Margin="0,10,0,-17"/>
+        <Button  Content="Посчитать"     Grid.Row="4"     Grid.Column="1"  Margin="5"        FontSize="18" FontFamily="Arial" Click="Calculate_Integral_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
+        <TextBox Name="TextBlock_Result" Grid.RowSpan="4" Grid.Column="1"  Margin="5,5,5,30" FontSize="18" FontFamily="Arial" Background="LightGray"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderBrush="Transparent" BorderThickness="0"/>
+        <WpfPlot Name="Chart"            Grid.Row="5"     Grid.ColumnSpan="2"/>
     </Grid>
 </Page>

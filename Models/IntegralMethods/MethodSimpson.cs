@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace math_in.Models.IntegralMethods {
   public class MethodSimpson {
@@ -37,7 +33,6 @@ namespace math_in.Models.IntegralMethods {
 
       Func.countN[2] = N;
       Func.result[2] = valIntegral2;
-
 
       return valIntegral2;
     }
@@ -95,7 +90,6 @@ namespace math_in.Models.IntegralMethods {
           Func.countN[2] = SearchN.Search(SimpsonMethodConcreteN, a, b, e, N / 2, N, valIntegral2);
         }
       }
-
 
       if (Func.countN[2] % 2 != 0) {
         if (Math.Abs(Math.Round((decimal)valIntegral2, Math.Abs((int)Math.Log10(e)))

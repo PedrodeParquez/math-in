@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace math_in.Models.MethodDichtomii {
-  public class MethodDichtomii : Func {
+  public class MethodDichtomy : Func {
     public static double Dychotomy(double a, double b, double e, double x = default) {
       if (Fun(a) * Fun(b) > 0) {
         MessageBox.Show($"Нет единственного решения на отрезке [{a}; {b}] !!!\n\n");
@@ -35,7 +30,6 @@ namespace math_in.Models.MethodDichtomii {
       double delta = e / 10;
 
       while (b - a >= e) {
-        double middle = (a + b) / 2;
         double lambda = a + delta, mu = b - delta; ;
         if (Fun(lambda) < Fun(mu))
           b = mu;
@@ -50,8 +44,8 @@ namespace math_in.Models.MethodDichtomii {
       double delta = e / 10;
 
       while (b - a >= e) {
-        double middle = (a + b) / 2;
         double lambda = a + delta, mu = b - delta;
+
         if (-Fun(lambda) < -Fun(mu))
           b = mu;
         else
