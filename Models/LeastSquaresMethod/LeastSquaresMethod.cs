@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using math_in.Models.SLAE;
-using NPOI.SS.Formula.Functions;
+using math_in.Views.Message_Boxes;
 
 namespace math_in.Models.LeastSquaresMethod {
   public class LeastSquaresMethod {
@@ -93,7 +91,7 @@ namespace math_in.Models.LeastSquaresMethod {
       }
 
       if (double.IsNaN(sumLnY) || double.IsNaN(sumXLnY)) {
-        throw new Exception("Значения Y должны быть больше нуля !!!");
+        MessageBox_Custom.Show("Предупреждени", "Значения Y должны быть", " больше нуля!");
       }
 
       double[] resMatrix = new double[] {

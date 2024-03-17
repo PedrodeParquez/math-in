@@ -1,10 +1,10 @@
-﻿using System.Windows;
+﻿using math_in.Views.Message_Boxes;
 
 namespace math_in.Models.MethodDichtomii {
   public class MethodDichtomy : Func {
     public static double Dychotomy(double a, double b, double e, double x = default) {
       if (Fun(a) * Fun(b) > 0) {
-        MessageBox.Show($"Нет единственного решения на отрезке [{a}; {b}] !!!\n\n");
+        MessageBox_Custom.Show("Предупреждение", "Нет единственного решения", $"на отрезке [{a}; {b}]!");
       }
 
       while ((b - a) > e) {

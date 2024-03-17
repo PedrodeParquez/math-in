@@ -211,10 +211,16 @@
     <Compile Include="Views\LeastSquaresMethodView.xaml.cs">
       <DependentUpon>LeastSquaresMethodView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MessageBoxes\MessageBox_LeastSquaresMethod.xaml.cs">
+    <Compile Include="Views\Message Boxes\MessageBox_Custom.xaml.cs">
+      <DependentUpon>MessageBox_Custom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Message Boxes\MessageBox_Exit.xaml.cs">
+      <DependentUpon>MessageBox_Exit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Message Boxes\MessageBox_LeastSquaresMethod.xaml.cs">
       <DependentUpon>MessageBox_LeastSquaresMethod.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MessageBoxes\MessageBox_Sorting.xaml.cs">
+    <Compile Include="Views\Message Boxes\MessageBox_Sorting.xaml.cs">
       <DependentUpon>MessageBox_Sorting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NuitonView.xaml.cs">
@@ -261,11 +267,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MessageBoxes\MessageBox_LeastSquaresMethod.xaml">
+    <Page Include="Views\Message Boxes\MessageBox_Custom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MessageBoxes\MessageBox_Sorting.xaml">
+    <Page Include="Views\Message Boxes\MessageBox_Exit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Message Boxes\MessageBox_LeastSquaresMethod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Message Boxes\MessageBox_Sorting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

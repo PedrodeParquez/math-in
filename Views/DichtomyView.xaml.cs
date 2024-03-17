@@ -1,6 +1,7 @@
 ﻿using math_in.Models;
 using math_in.Models.InputHandler;
 using math_in.Models.MethodDichtomii;
+using math_in.Views.Message_Boxes;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,7 +21,7 @@ namespace math_in.Views {
       try {
         Func.TextFunction = TextBox_Function.Text;
       } catch (Exception ex) {
-        MessageBox.Show($"Error: {ex.Message}\nStackTrace: {ex.StackTrace}");
+        MessageBox_Custom.Show("Ошибка!", $"{ex.Message}", $"{ex.StackTrace}");
         return;
       }
 

@@ -2,8 +2,7 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:math_in.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" Background="White"
       d:DesignHeight="600" d:DesignWidth="900"
       Title="SLAEView">
@@ -22,10 +21,8 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <Grid Name="FormGrid">
-
-            </Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid Name="FormGrid"></Grid>
         </ScrollViewer>
 
         <Grid Grid.Row="1">
@@ -50,9 +47,9 @@
                         <ColumnDefinition Width="1.5*"/>
                     </Grid.ColumnDefinitions>
 
-                    <CheckBox Name="CheckBox_Method_Gauss"    Grid.Column="0" Content="Метод Гауса"         VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
-                    <CheckBox Name="CheckBox_Method_Cramer"   Grid.Column="1" Content="Метода Крамера"      VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
-                    <CheckBox Name="CheckBox_Method_Jordano"  Grid.Column="2" Content="Метод Жордана Гауса" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <CheckBox Name="CheckBox_Method_Gauss"   Grid.Column="0" Content="Метод Гауса"         VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <CheckBox Name="CheckBox_Method_Cramer"  Grid.Column="1" Content="Метода Крамера"      VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
+                    <CheckBox Name="CheckBox_Method_Jordano" Grid.Column="2" Content="Метод Жордана Гауса" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -61,9 +58,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox   FontSize="15" Margin="5"         Grid.Column="0" Background="LightGray"  FontFamily="Arial"  IsReadOnly="True"/>
-                    <TextBox   FontSize="18" Margin="5"         Grid.Column="1" Background="LightGray"  FontFamily="Arial"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="TextBox_Size_Enter"  BorderBrush="Transparent" BorderThickness="0" CaretBrush="Transparent"/>
-                    <TextBlock FontSize="15" Margin="54,0,10,0" Grid.Column="0" Background="LightGray"  FontFamily="Arial"  VerticalAlignment="Center">Введите размер</TextBlock >
+                    <TextBox   FontSize="15" Margin="5"         Grid.Column="0" Background="LightGray" FontFamily="Arial" IsReadOnly="True"/>
+                    <TextBox   FontSize="18" Margin="5"         Grid.Column="1" Background="LightGray" FontFamily="Arial" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name="TextBox_Size_Enter"  BorderBrush="Transparent" BorderThickness="0" CaretBrush="Transparent"/>
+                    <TextBlock FontSize="17" Margin="47,0,47,0" Grid.Column="0" Background="LightGray" FontFamily="Arial" VerticalAlignment="Center">Введите размер</TextBlock>
                 </Grid>
 
                 <Grid Grid.Row="2">
@@ -72,34 +69,26 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="0" Content="Создать форму"  Margin="5" FontSize="15" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Generate_Form_Button_Click"/>
-                    <Button Grid.Column="1" Content="Очистить форму" Margin="5" FontSize="15" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Clear_Form_Button_Click"/>
+                    <Button Grid.Column="0" Content="Создать форму"  Margin="5" FontSize="17" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Generate_Form_Button_Click"/>
+                    <Button Grid.Column="1" Content="Очистить форму" Margin="5" FontSize="17" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Clear_Form_Button_Click"/>
                 </Grid>
 
-                <Button Grid.Row="4" Content="Посчитать"          Margin="5" FontSize="15" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Calculate_Buttton_Click"/>
-                <Button Grid.Row="3" Content="Случайные значения" Margin="5" FontSize="15" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Random_Values_Button_Click"/>
+                <Button Grid.Row="4" Content="Посчитать"          Margin="5" FontSize="17" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Calculate_Buttton_Click"/>
+                <Button Grid.Row="3" Content="Случайные значения" Margin="5" FontSize="17" FontFamily="Arial" Style="{StaticResource GrayButtonStyle}" Click="Random_Values_Button_Click"/>
             </Grid>
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="47*"/>
-                    <RowDefinition Height="0*"/>
                     <RowDefinition Height="167*"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0" Background="LightGray" Margin="0,5,5,8.2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="5*"/>
-                    </Grid.RowDefinitions>
-
                     <TextBlock FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Arial" Height="29" Width="125" Margin="0,2,0,0" Grid.RowSpan="2">Результаты</TextBlock>
                 </Grid>
 
                 <TextBox Name="TextBox_Result" Background="LightGray" Margin="5,0.7,5,6" FontSize="18" FontFamily="Arial" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" BorderBrush="Transparent" BorderThickness="0" Grid.Row="2"/>
             </Grid>
-
-
         </Grid>
     </Grid>
 </Page>

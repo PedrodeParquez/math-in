@@ -1,4 +1,5 @@
-﻿using System;
+﻿using math_in.Views.Message_Boxes;
+using System;
 
 namespace math_in.Models.SLAE {
   public class SlaeMethods {
@@ -12,7 +13,7 @@ namespace math_in.Models.SLAE {
       double delta = Determinant(matrix, countParam);
 
       if (delta == 0) {
-        throw new Exception("У данного СЛАУ нет тривиального решения!");
+        MessageBox_Custom.Show("Ошибка!", "У данного СЛАУ нет", "тривиального решения!");
       }
 
       for (int indexColumn = 0; indexColumn < countParam; ++indexColumn) {
@@ -36,7 +37,7 @@ namespace math_in.Models.SLAE {
       double delta = Determinant(matrix, countParam);
 
       if (delta == 0) {
-        throw new Exception("У данного СЛАУ нет тривиального решения !!!");
+        MessageBox_Custom.Show("Ошибка!", "У данного СЛАУ нет", "тривиального решения!");
       }
 
       for (int indexRow = 1; indexRow < countParam; ++indexRow) {
@@ -92,7 +93,7 @@ namespace math_in.Models.SLAE {
       double delta = Determinant(matrix, countParam);
 
       if (delta == 0) {
-        throw new Exception("У данного СЛАУ нет тривиального решения !!!");
+        MessageBox_Custom.Show("Ошибка!", "У данного СЛАУ нет", "тривиального решения!");
       }
 
       for (int indexRow = 1; indexRow < countParam; ++indexRow) {
@@ -165,11 +166,14 @@ namespace math_in.Models.SLAE {
 
     public static double Determinant(double[,] matrix, int matrixSide) {
       if (matrixSide == 2) {
-        return (matrix[0, 0] * matrix[1, 1] -
-          matrix[0, 1] * matrix[1, 0]);
-      } else if (matrixSide == 1) {
+        return (matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0]);
+      }
+      
+      if (matrixSide == 1) {
         return matrix[0, 0];
-      } else if (matrixSide >= 3) {
+      } 
+
+      if (matrixSide >= 3) {
         double[,] MatrixForDeterminant = new double[matrixSide - 1, matrixSide - 1];
         double MatrixDeterminant = default;
 
@@ -198,7 +202,8 @@ namespace math_in.Models.SLAE {
 
         return MatrixDeterminant;
       } else {
-        throw new Exception("Сторона квадратной матрицы равна нулю! Неверное значение стороны!");
+        MessageBox_Custom.Show("Ошибка!", "Сторона квадратной матрицы", "имеет неверное значение!");
+        return 0;
       }
     }
   }

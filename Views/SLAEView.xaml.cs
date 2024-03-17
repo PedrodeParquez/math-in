@@ -1,4 +1,6 @@
-﻿using math_in.Models.SLAE;
+﻿using math_in.Models.InputHandler;
+using math_in.Models.SLAE;
+using math_in.Views.Message_Boxes;
 using System;
 using System.Linq;
 using System.Windows;
@@ -14,13 +16,15 @@ namespace math_in.Views {
     double[,] array;
     double[] resultSlau;
     int n;
+    bool formExist, formIncorrect;
 
     private void Generate_Form_Button_Click(object sender, RoutedEventArgs e) {
-      if (int.TryParse(TextBox_Size_Enter.Text, out int value) && value >= 2 && value <= 50) {
+      if (int.TryParse(TextBox_Size_Enter.Text, out int value) && value >= 2 && value <= 20) {
         CreateTextBoxRectangle(FormGrid, value, value + 1);
-      } else {
-        MessageBox.Show("Введите значение от 2 до 50");
+        formExist = true;
+        return;
       }
+      MessageBox_Custom.Show("Внимание!", "Введите значение размера", "от 2 до 20!");
     }
 
     private void CreateTextBoxRectangle (Grid FormGrid, int totalRows, int totalColumns) {
@@ -73,6 +77,11 @@ namespace math_in.Views {
     }
 
     private void Random_Values_Button_Click(object sender, RoutedEventArgs e) {
+      if (!formExist) {
+        MessageBox_Custom.Show("Внимание!", "Для заполнения формы", "сначала необходимо создать её!");
+        return;
+      }
+      
       Random random = new Random();
 
       foreach (var child in FormGrid.Children) {
@@ -80,11 +89,13 @@ namespace math_in.Views {
           textBox.Text = random.Next(1, 100).ToString();
         }
       }
+
+      formIncorrect = true;
     }
 
     private (double[,], double[]) ReadDataFromTextBoxes(int n) {
       double[,] resultArray = new double[n, n];
-      double[] rightSide = new double[n];
+      double[]  rightSide   = new double[n];
 
       for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -96,7 +107,7 @@ namespace math_in.Views {
             if (double.TryParse(textBox.Text, out double value)) {
               resultArray[i, j] = value;
             } else {
-              MessageBox.Show("Введите корректные числа в TextBoxы!");
+              formIncorrect = false;
               return (resultArray, rightSide);
             }
           }
@@ -111,29 +122,36 @@ namespace math_in.Views {
           if (double.TryParse(textBox.Text, out double value)) {
             rightSide[i] = value;
           } else {
-            MessageBox.Show("Введите корректные числа в TextBoxы!");
+            formIncorrect = false;
             return (resultArray, rightSide);
           }
         }
       }
 
+      formIncorrect = true;
       return (resultArray, rightSide);
     }
 
     private void Clear_Form_Button_Click(object sender, RoutedEventArgs e) {
       FormGrid.Children.Clear();
+      formIncorrect = false;
+      formExist = false;
     }
 
-    private void Calculate_Buttton_Click(object sender, RoutedEventArgs e) { 
-      if (CheckBox_Method_Gauss.IsChecked == false && CheckBox_Method_Cramer.IsChecked == false && 
-        CheckBox_Method_Jordano.IsChecked == false) {
-        MessageBox.Show("Выберите один метод!");
+    private void Calculate_Buttton_Click(object sender, RoutedEventArgs e) {
+      (array, resultSlau) = ReadDataFromTextBoxes(n);
+
+      if (!InputHandler.IsCorrectInputSLAE(formExist, formIncorrect)) {
         return;
       }
 
-      if (CheckBox_Method_Gauss.IsChecked == true && CheckBox_Method_Cramer.IsChecked == false &&
+      if (CheckBox_Method_Gauss.IsChecked == false && CheckBox_Method_Cramer.IsChecked == false && 
         CheckBox_Method_Jordano.IsChecked == false) {
-        (array, resultSlau) = ReadDataFromTextBoxes(n);
+        MessageBox_Custom.Show("Внимание!", "Выберите только один метод!", "");
+        return;
+      }
+
+      if (CheckBox_Method_Gauss.IsChecked == true) {
         double [] res = SlaeMethods.MethodGauss(array, resultSlau, n);
 
         TextBox_Result.Clear();
@@ -145,9 +163,7 @@ namespace math_in.Views {
         return;
       }
 
-      if (CheckBox_Method_Cramer.IsChecked == true && CheckBox_Method_Jordano.IsChecked == false && 
-        CheckBox_Method_Gauss.IsChecked == false) {
-        (array, resultSlau) = ReadDataFromTextBoxes(n);
+      if (CheckBox_Method_Cramer.IsChecked == true) {
         double[] res = SlaeMethods.MethodСramer(array, resultSlau, n);
 
         TextBox_Result.Clear();
@@ -159,8 +175,7 @@ namespace math_in.Views {
         return;
       }
 
-      if (CheckBox_Method_Jordano.IsChecked == true && CheckBox_Method_Gauss.IsChecked == false && CheckBox_Method_Cramer.IsChecked == false) {
-        (array, resultSlau) = ReadDataFromTextBoxes(n);
+      if (CheckBox_Method_Jordano.IsChecked == true) {
         double[] res = SlaeMethods.MethodGaussJordano(array, resultSlau, n);
 
         TextBox_Result.Clear();
@@ -171,8 +186,6 @@ namespace math_in.Views {
 
         return;
       }
-
-      MessageBox.Show("Выберите только один метод!");
     }
   }
 }

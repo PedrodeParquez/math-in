@@ -6,6 +6,14 @@
         mc:Ignorable="d"
         Title="MessageBox_LeastSquaresMethod" Height="200" Width="250" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ResourcesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -20,11 +28,11 @@
 
         <TextBlock  Grid.Row="0" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="0,0,0,5">Введите значения</TextBlock>
         <TextBlock  Grid.Row="1" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="30,0,30,5">Количество точек</TextBlock>
-        <TextBox    Grid.Row="2" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="60,0,60,5" Name="TextBox_Amount_Points"/>
+        <TextBox    Grid.Row="2" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="60,0,60,5" Name="TextBox_Amount_Points" BorderBrush="Transparent" BorderThickness="0" CaretBrush="Transparent"/>
         <TextBlock  Grid.Row="3" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="30,0,30,5">Минимальное значение</TextBlock>
-        <TextBox    Grid.Row="4" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="60,0,60,5" Name="TextBox_Min_Value"/>
+        <TextBox    Grid.Row="4" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="60,0,60,5" Name="TextBox_Min_Value" BorderBrush="Transparent" BorderThickness="0" CaretBrush="Transparent"/>
         <TextBlock  Grid.Row="5" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="30,0,30,5">Максимальное значение</TextBlock>
-        <TextBox    Grid.Row="6" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="60,0,60,5" Name="TextBox_Max_Value"></TextBox>
-        <Button     Grid.Row="7" Background="LightGray" FontSize="15" FontFamily="Arial"  VerticalContentAlignment="Center" Margin="50,0,50,5" Content="OK" Click="OK_Button_Click"/>
+        <TextBox    Grid.Row="6" Background="LightGray" FontSize="16" FontFamily="Arial"  TextAlignment="Center"            Margin="60,0,60,5" Name="TextBox_Max_Value" BorderBrush="Transparent" BorderThickness="0" CaretBrush="Transparent"/>
+        <Button     Grid.Row="7" Background="LightGray" FontSize="15" FontFamily="Arial"  VerticalContentAlignment="Center" Margin="50,0,50,5" Content="OK" Click="OK_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
     </Grid>
 </Window>

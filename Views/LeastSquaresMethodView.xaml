@@ -6,6 +6,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="900"
       Title="LeastSquaresMethodWiew" Background="White">
+    
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -44,21 +45,22 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button  Grid.Column="0" Margin="5"  FontFamily="Arial" FontSize="14" Content="Посчитать значения" Click="Calculate_First_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
-                        <TextBox Name="TextBox_Linear_X" Grid.Column="1" Background="LightGray" Margin="5"  FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
+                        <Button  Content="Посчитать значения" Margin="5" FontFamily="Arial" FontSize="14" Style="{StaticResource GrayButtonStyle}" Click="Calculate_First_Button_Click"/>
+                        <TextBox Name="TextBox_Linear_X"      Margin="5" FontFamily="Arial" FontSize="18" Grid.Column="1" Background="LightGray" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
                     </Grid>
 
-                    <TextBlock Grid.Row="0" Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
+                    <TextBlock Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
                         Линейная регрессия
                             <LineBreak/>
                         Итоговая формула
                     </TextBlock>
-                    <TextBox   Name="TextBox_Linear" Grid.Row="1" Background="LightGray" Margin="5"  HorizontalContentAlignment="Center" FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
-                    <TextBlock Grid.Row="3" Background="LightGray" Margin="5" FontFamily="Arial" FontSize="19" TextAlignment="Center">Результат</TextBlock>
-                    <TextBox   Name="TextBox_Linear_Result" Grid.Row="4" Background="LightGray" Margin="5"       FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
-                    <TextBlock Grid.Row="5" Background="LightGray" Margin="5,0,5,0"/>
-                    <CheckBox  Name="CheckBox_Linear" Grid.Row="5" Content="Линейная регрессия"  FontFamily="Arial" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    
+
+                    <TextBlock Background="LightGray" Grid.Row="5" Margin="5,0,5,0"/>
+                    <TextBlock Background="LightGray" Grid.Row="3" Margin="5" FontFamily="Arial" FontSize="19" TextAlignment="Center">Результат</TextBlock>
+
+                    <TextBox  Name="TextBox_Linear"        Grid.Row="1" FontSize="18" FontFamily="Arial" Background="LightGray" Margin="5" HorizontalContentAlignment="Center" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
+                    <TextBox  Name="TextBox_Linear_Result" Grid.Row="4" FontSize="18" FontFamily="Arial" Background="LightGray" Margin="5" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
+                    <CheckBox Name="CheckBox_Linear"       Grid.Row="5" FontSize="18" FontFamily="Arial" Content="Линейная регрессия" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Column="1">
@@ -77,21 +79,22 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button    Grid.Row="2" Margin="5"   FontFamily="Arial" FontSize="14" Content="Посчитать значения" Click="Calculate_Second_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
-                        <TextBox   Name="TextBox_Parabolic_X" Grid.Column="1" Background="LightGray" Margin="5"  FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
+                        <Button  Content="Посчитать значения" Grid.Row="2"    Margin="5" FontFamily="Arial" FontSize="14"  Click="Calculate_Second_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
+                        <TextBox Name="TextBox_Parabolic_X"   Grid.Column="1" Margin="5" FontFamily="Arial" FontSize="18"  Background="LightGray" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
                     </Grid>
 
-                    <TextBlock Grid.Row="0" Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
+                    <TextBlock Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
                         Параболическая регрессия
                         <LineBreak/>
                         Итоговая формула
                     </TextBlock>
 
-                    <TextBox   Name="TextBox_Parabolic" Grid.Row="1" Background="LightGray" Margin="5"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Arial" CaretBrush="Transparent" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
-                    <TextBlock Grid.Row="3" Background="LightGray" Margin="5" FontFamily="Arial" FontSize="19" TextAlignment="Center">Результат</TextBlock>
-                    <TextBox   Name="TextBox_Parabolic_Result" Grid.Row="4" Background="LightGray" Margin="5" FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True" />
                     <TextBlock Grid.Row="5" Background="LightGray" Margin="5,0,5,0"/>
-                    <CheckBox  Grid.Row="5" Content="Параболическая регрессия" Name="CheckBox_Parabolic" FontFamily="Arial" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="3" Background="LightGray" Margin="5" FontFamily="Arial" FontSize="19" TextAlignment="Center">Результат</TextBlock>
+
+                    <TextBox  Name="TextBox_Parabolic"        Grid.Row="1" FontSize="18" FontFamily="Arial" Background="LightGray" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CaretBrush="Transparent" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
+                    <TextBox  Name="TextBox_Parabolic_Result" Grid.Row="4" FontSize="18" FontFamily="Arial" Background="LightGray" Margin="5" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True" />
+                    <CheckBox Name="CheckBox_Parabolic"       Grid.Row="5" FontSize="18" FontFamily="Arial" Content="Параболическая регрессия" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Column="2">
@@ -110,21 +113,22 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button  Grid.Column="0" Margin="5"  FontFamily="Arial" FontSize="14" Content="Посчитать значения" Click="Calculate_Third_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
-                        <TextBox Name="TextBox_Exponential_X" Grid.Column="1" Background="LightGray" Margin="5"  FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
+                        <Button  Content="Посчитать значения" Margin="5" FontFamily="Arial" FontSize="14" Click="Calculate_Third_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
+                        <TextBox Name="TextBox_Exponential_X" Margin="5" FontFamily="Arial" FontSize="18" Grid.Column="1" Background="LightGray" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
                     </Grid>
 
-                    <TextBlock Grid.Row="0" Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
+                    <TextBlock Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
                         Экспоненциальная регрессия
                         <LineBreak/>
                         Итоговая формула
                     </TextBlock>
 
-                    <TextBox   Name="TextBox_Exponential" Grid.Row="1" Background="LightGray" Margin="5"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="18" FontFamily="Arial" CaretBrush="Transparent" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
-                    <TextBlock Grid.Row="3" Background="LightGray" Margin="5"  FontFamily="Arial" FontSize="19" TextAlignment="Center">Результат</TextBlock>
-                    <TextBox   Name="TextBox_Exponential_Result" Grid.Row="4" Background="LightGray" Margin="5"  FontSize="18" FontFamily="Arial" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
                     <TextBlock Grid.Row="5" Background="LightGray" Margin="5,0,5,0"/>
-                    <CheckBox  Grid.Row="5" Name="CheckBox_Exponential" Content="Экспоненциальная регрессия" FontFamily="Arial" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="3" Background="LightGray" Margin="5" FontFamily="Arial" FontSize="19" TextAlignment="Center">Результат</TextBlock>
+
+                    <TextBox  Name="TextBox_Exponential"        Grid.Row="1" FontFamily="Arial" FontSize="18" Background="LightGray" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CaretBrush="Transparent" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
+                    <TextBox  Name="TextBox_Exponential_Result" Grid.Row="4" FontFamily="Arial" FontSize="18" Background="LightGray" Margin="5" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" IsReadOnly="True"/>
+                    <CheckBox Name="CheckBox_Exponential"       Grid.Row="5" FontFamily="Arial" FontSize="18" Content="Экспоненциальная регрессия" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Grid>
         </Grid>
@@ -142,18 +146,18 @@
                     <RowDefinition Height="8*"/>
                 </Grid.RowDefinitions>
 
-                <DataGrid Name="dataGrid" AutoGenerateColumns="False" Grid.Row="2" CanUserAddRows="False" ItemsSource="{Binding Data}" HeadersVisibility="Column" CellEditEnding="DataGrid_CellEditEnding" Margin="0,0,5,0">
+                <DataGrid Name="dataGrid" AutoGenerateColumns="False" Grid.Row="2" CanUserSortColumns="False" CanUserAddRows="False" ItemsSource="{Binding Data}" HeadersVisibility="Column" CellEditEnding="DataGrid_CellEditEnding" Margin="0,0,5,0">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="X" Binding="{Binding X}" Width="*"/>
                         <DataGridTextColumn Header="Y" Binding="{Binding Y}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
 
-                <Button Margin="0,5,5,5" Content="Найти параметры" FontFamily="Arial" FontSize="16" Click="Calculate_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
-                <Button Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Cлучайными значения" Margin="0,5,5,5" FontFamily="Arial" FontSize="16" Click="Random_Values_Button_Click" Style="{StaticResource GrayButtonStyle}"/>
+                <Button Content="Найти параметры"     Margin="0,5,5,5" FontFamily="Arial" FontSize="16" Style="{StaticResource GrayButtonStyle}" Click="Calculate_Button_Click"/>
+                <Button Content="Cлучайными значения" Margin="0,5,5,5" FontFamily="Arial" FontSize="16" Style="{StaticResource GrayButtonStyle}" Click="Random_Values_Button_Click" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             </Grid>
 
-            <WpfPlot Name="Wplot" Grid.Column="0" Margin="0,0,5,0"/>
+            <WpfPlot Name="Wplot" Margin="0,0,5,0"/>
         </Grid>
     </Grid>
 </Page>

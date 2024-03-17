@@ -1,5 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using math_in.Views.Message_Boxes;
+using System;
 
 namespace math_in.Models.MethodNuiton {
   public class MethodNuiton {
@@ -16,7 +16,7 @@ namespace math_in.Models.MethodNuiton {
       } while (Math.Abs(x1 - x0) > e);
 
       if (x1 > b || x1 < a) {
-        MessageBox.Show("На данном отрезке нет экстремума !!!");
+        MessageBox_Custom.Show("Предупреждени", "На данном отрезке нет", "экстремума !");
       }
 
       return x1;
@@ -40,7 +40,7 @@ namespace math_in.Models.MethodNuiton {
       } while (Math.Abs(Func.Fun(x0) / Derivative(x0)) > h);
 
       if (x1 > b || x1 < a) {
-       MessageBox.Show("На данном отрезке нет точек пересечения !!!");
+        MessageBox_Custom.Show("Предупреждени", "На данном отрезке нет", "точек пересечения!");
       }
 
       return x1;

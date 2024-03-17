@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Diagnostics;
 using System.Windows.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
+using math_in.Views.Message_Boxes;
 
 namespace math_in.Views {
   public partial class SortingView : Page {
@@ -35,13 +36,19 @@ namespace math_in.Views {
     }
 
     private void Button_Add_Element_Click(object sender, RoutedEventArgs e) {
+      if (TextBox_Add_Element.Text == "") {
+        MessageBox_Custom.Show("Пояснение", "Поле пустое, для ", "начала запомните его!");
+        return;
+      }
+
       if (int.TryParse(TextBox_Add_Element.Text, out int number)) {
        TextBox_Array.Text += number + " ";
 
        TextBox_Add_Element.Text = string.Empty;
-      } else {
-        MessageBox.Show("Пожалуйста, вводите только целые числа!");
+        return;
       }
+
+      MessageBox_Custom.Show("Пояснение", "Пожалуйста, вводите только", "целые числа!");
     }
 
     private void Button_Sorting_Click(object sender, RoutedEventArgs e) {
@@ -50,7 +57,13 @@ namespace math_in.Views {
       
 
       if (inputText == "") {
-        MessageBox.Show("Введите хотя бы одно число в массив!", "Внимание!", MessageBoxButtons.OK);
+        MessageBox_Custom.Show("Пояснение", "Введите хотя бы одно", "число в массив!");
+        return;
+      }
+
+      if (CheckBox_Quick.IsChecked == false && CheckBox_Bogo.IsChecked == false && CheckBox_Insertion.IsChecked == false &&
+        CheckBox_Shaker.IsChecked == false && CheckBox_Bubble.IsChecked == false) {
+        MessageBox_Custom.Show("Пояснение", "Выберите хотя бы один", "способ сортировки!");
         return;
       }
 
@@ -102,11 +115,6 @@ namespace math_in.Views {
         resultString += $"Быстрая сортировка: {result} мс\nИтерации = {QuickSorting.GetIterationCount()} раз";
       }
 
-      if (resultString == "") {
-        MessageBox.Show("Выберите хотя бы один способ сортировки!", "Внимание!");
-        return;
-      }
-
       MessageBox.Show(resultString, "Результаты", MessageBoxButtons.OK);
       string resulti = string.Join(" ", BubbleSorting.BubbleSort(numbers).Item1);
       TextBox_Result.Text = resulti;
@@ -115,7 +123,6 @@ namespace math_in.Views {
       Chart.Plot.YLabel("Время, мс");
 
       Chart.Plot.AddBar(idIter, idName);
-      //Chart.Plot.XTicks(idName, name);
       Chart.Refresh();
     }
   }

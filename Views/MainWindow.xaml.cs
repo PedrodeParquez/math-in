@@ -1,5 +1,6 @@
 ﻿using math_in.Models;
 using math_in.Views;
+using math_in.Views.Message_Boxes;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,9 +35,7 @@ namespace math_in {
 
     //Tool bar
     private void ExitButton_Click(object sender, RoutedEventArgs e) {
-      MessageBoxResult result = MessageBox.Show("Точно ли вы хотите закрыть приложение?", "Подтверждение выхода", MessageBoxButton.YesNo);
-
-      if (result == MessageBoxResult.Yes) {
+      if (!MessageBox_Exit.Show("Подтверждение", "Точно ли вы хотите", " закрыть приложение?")) {
         Close();
       }
     }

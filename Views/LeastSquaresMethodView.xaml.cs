@@ -1,6 +1,7 @@
 ﻿using math_in.Models;
 using math_in.Models.LeastSquaresMethod;
 using math_in.Views.MessagBoxes;
+using math_in.Views.Message_Boxes;
 using ScottPlot;
 using System;
 using System.Collections.Generic;
@@ -112,17 +113,17 @@ namespace math_in.Views {
       Wplot.Reset();
 
       if (Data.Count == 0) {
-        MessageBox.Show("Заполните таблицу значениями!", "Пояснение");
+        MessageBox_Custom.Show("Пояснение", "Заполните таблицу значениями!", "");
         return;
       }
 
       if (Data.Count <= 1) {
-        MessageBox.Show("Введите больше одной пары чисел!", "Пояснение");
+        MessageBox_Custom.Show("Пояснение", "Введите больше одной", "пары чисел!");
         return;
       }
 
       if (CheckBox_Parabolic.IsChecked == false && CheckBox_Linear.IsChecked == false && CheckBox_Exponential.IsChecked == false) {
-        MessageBox.Show("Выберите хотя бы одну регрессию!", "Пояснение");
+        MessageBox_Custom.Show("Пояснение", "Выберите хотя бы ", "одну регрессию!");
         return;
       }
 
@@ -210,7 +211,7 @@ namespace math_in.Views {
       for (int i = 0; i < yval.Length; i++) {
         if (yval[i] <= 0) {
           exp = false;
-          MessageBox.Show("Так как один из Y меньше или равен 0, то для экспоненциальной\nневозможно построить график и посчитать формулу!", "Результат");
+          MessageBox_Custom.Show("Пояснение", "Невозможно построить график", "для экспоненциальной формулы!");
           break;
         }
       }

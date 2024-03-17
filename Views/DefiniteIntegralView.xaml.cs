@@ -1,6 +1,7 @@
 ﻿using math_in.Models;
 using math_in.Models.InputHandler;
 using math_in.Models.IntegralMethods;
+using math_in.Views.Message_Boxes;
 using System;
 using System.Drawing;
 using System.Windows;
@@ -26,19 +27,19 @@ namespace math_in.Views {
       }
 
       if (!int.TryParse(TextBox_Number_Splits.Text, out Func.N) && hasN) {
-        MessageBox.Show("Неправильный формат данных для количества разбиений!");
+        MessageBox_Custom.Show("Внимание!", "Неправильный формат данных", "для количества разбиений!");
         return;
       }
 
       if ((CheckBox_Method_Rectangle.IsChecked == false) && (CheckBox_Method_Trapezoid.IsChecked == false) && (CheckBox_Method_Simpson.IsChecked == false)) {
-        MessageBox.Show("Выберите хотя бы один метод!");
+        MessageBox_Custom.Show("Внимание!", "Выберите хотя бы", "один метод!");
         return;
       }
 
       try {
         Func.TextFunction = TextBox_Function.Text;
       } catch (Exception ex) {
-        MessageBox.Show(ex.Message);
+        MessageBox_Custom.Show("Ошибка!", $"{ex.Message}", "");
         return;
       }
 

@@ -1,6 +1,7 @@
 ﻿using math_in.Models;
 using math_in.Models.CoordinateDescent;
 using math_in.Models.InputHandler;
+using math_in.Views.Message_Boxes;
 using System;
 using System.Drawing;
 using System.Windows;
@@ -22,7 +23,7 @@ namespace math_in.Views {
       try {
         Func.TextFunction = TextBox_Function.Text;
       } catch (Exception ex) {
-        MessageBox.Show($"Error: {ex.Message}\nStackTrace: {ex.StackTrace}");
+        MessageBox_Custom.Show("Ошибка!", $"{ex.Message}", $"{ex.StackTrace}");
         return;
       }
 
@@ -31,7 +32,7 @@ namespace math_in.Views {
       try {
         minPointX = Math.Round((double)CoordinateDescent.CoordinateDescentLocMin(Func.a, Func.b, Func.e), Math.Abs((int)Math.Log10(Func.e)));
       } catch (Exception ex) {
-        MessageBox.Show(ex.Message);
+        MessageBox_Custom.Show("Ошибка!", $"{ex.Message}", "");
         return;
       }
 
@@ -42,7 +43,6 @@ namespace math_in.Views {
         maxPointX = Math.Round((double)CoordinateDescent.CoordinateDescentLocMax(Func.a, Func.b, Func.e), Math.Abs((int)Math.Log10(Func.e)));
       } catch (Exception ex) {
         TextBlock_Result.Text = ex.Message;
-
         return;
       }
 

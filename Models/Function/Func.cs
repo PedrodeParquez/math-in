@@ -1,4 +1,5 @@
-﻿using System;
+﻿using math_in.Views.Message_Boxes;
+using System;
 
 namespace math_in.Models {
   public class Func {
@@ -33,7 +34,8 @@ namespace math_in.Models {
 
         return res;
       } else {
-        throw new Exception("Функция написана неверно !!!");
+        MessageBox_Custom.Show("Предупреждение", "Функция написана неверно !", "");
+        return 0;
       }
     }
 
