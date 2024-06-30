@@ -4,8 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="900"
-      Title="LeastSquaresMethodWiew" Background="White">
+      d:DesignHeight="597" d:DesignWidth="900"
+      Title="LeastSquaresMethodWiew" Background="White" Margin="0,0.2,0,0">
     
     <Page.Resources>
         <ResourceDictionary>
@@ -49,7 +49,7 @@
                         <TextBox Name="TextBox_Linear_X"      Margin="5" FontFamily="Arial" FontSize="18" Grid.Column="1" Background="LightGray" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
                     </Grid>
 
-                    <TextBlock Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
+                    <TextBlock Background="LightGray" Margin="5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
                         Линейная регрессия
                             <LineBreak/>
                         Итоговая формула
@@ -83,7 +83,7 @@
                         <TextBox Name="TextBox_Parabolic_X"   Grid.Column="1" Margin="5" FontFamily="Arial" FontSize="18"  Background="LightGray" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
                     </Grid>
 
-                    <TextBlock Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
+                    <TextBlock Background="LightGray" Margin="5,5,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
                         Параболическая регрессия
                         <LineBreak/>
                         Итоговая формула
@@ -117,7 +117,7 @@
                         <TextBox Name="TextBox_Exponential_X" Margin="5" FontFamily="Arial" FontSize="18" Grid.Column="1" Background="LightGray" CaretBrush="Transparent" VerticalContentAlignment="Center" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center"/>
                     </Grid>
 
-                    <TextBlock Background="LightGray" Margin="5,0,5,5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
+                    <TextBlock Background="LightGray" Margin="5" FontFamily="Arial" FontSize="16" TextAlignment="Center">
                         Экспоненциальная регрессия
                         <LineBreak/>
                         Итоговая формула

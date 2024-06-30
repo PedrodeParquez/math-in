@@ -2,6 +2,7 @@
 using math_in.Models.LeastSquaresMethod;
 using math_in.Views.MessagBoxes;
 using math_in.Views.Message_Boxes;
+using MathNet.Numerics;
 using ScottPlot;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,8 @@ namespace math_in.Views {
       Func.TextFunction = func[0];
 
       TextBox_Linear_Result.Text = Func.Fun(x).ToString();
+
+      PrintPoint(x, TextBox_Linear_Result);
     }
 
     private void Calculate_Second_Button_Click(object sender, RoutedEventArgs e) {
@@ -56,6 +59,8 @@ namespace math_in.Views {
       Func.TextFunction = func[1];
 
       TextBox_Parabolic_Result.Text = Func.Fun(x).ToString();
+
+      PrintPoint(x, TextBox_Parabolic_Result);
     }
 
     private void Calculate_Third_Button_Click(object sender, RoutedEventArgs e) {
@@ -64,11 +69,20 @@ namespace math_in.Views {
       Func.TextFunction = func[2];
 
       TextBox_Exponential_Result.Text = Func.Fun(x).ToString();
+
+      PrintPoint(x, TextBox_Exponential_Result);
+    }
+
+    private void PrintPoint(double x, TextBox yTextbox) {
+      double y = double.Parse(yTextbox.Text).Round(2);
+
+      Wplot.Plot.AddMarker(x, y, size: 10, color: Color.Green);
+      Wplot.Refresh();
     }
 
     private void PrintPoints(double[] arrayX, double[] arrayY) {
       for (int i = 0; i < arrayX.Length; i++) {
-          Wplot.Plot.AddMarker(arrayX[i], arrayY[i], size: 5, color: Color.Green);
+          Wplot.Plot.AddMarker(arrayX[i], arrayY[i], size: 9, color: Color.Green);
       }
     }
 
@@ -77,7 +91,6 @@ namespace math_in.Views {
       List<double> yValues = new List<double>();
 
       Func.TextFunction = textFunc;
-
 
       double a = XValues.Min();
       double b = XValues.Max();
@@ -107,9 +120,6 @@ namespace math_in.Views {
     }
 
     private void Calculate_Button_Click(object sender, RoutedEventArgs e) {
-
-      string result = $"Оценка погрешности:";
-
       Wplot.Reset();
 
       if (Data.Count == 0) {
@@ -136,7 +146,7 @@ namespace math_in.Views {
         foreach (var item in dataGrid.Items) {
           bool isLastItem = currentIndex == itemCount - 1;
 
-          if (!isLastItem && item is DataItem dataItem) {
+          if (item is DataItem dataItem) {
             newData.Add(new DataItem { X = dataItem.X, Y = dataItem.Y });
           }
 
@@ -155,7 +165,10 @@ namespace math_in.Views {
         YValues.Add(item.Y);
       }
 
-      PrintPoints(XValues.ToArray(), YValues.ToArray());
+      string resultExponentialString = "";
+      string resultParabolicString = "";
+      string resultLinearString = "";
+      string resultString = "";
 
       if (CheckBox_Linear.IsChecked == true) {
         double[] linearParams = LeastSquaresMethod.LinearRegression(XValues, YValues);
@@ -173,7 +186,7 @@ namespace math_in.Views {
 
         deters[0] = LeastSquaresMethod.ErrorEstimation(XValues, YValues, func[0]);
 
-        result += $"\nЛинейная = {deters[0]}";
+        resultLinearString = $"\nЛинейная = {deters[0]}";
 
         PrintFunc(func[0], Color.Orange, "Линейная");
       }
@@ -201,7 +214,8 @@ namespace math_in.Views {
 
         deters[1] = LeastSquaresMethod.ErrorEstimation(XValues, YValues, func[1]);
 
-        result += $"\nПараболическая = {deters[1]}";
+        resultParabolicString = $"\nПараболическая = {deters[1]}";
+
         PrintFunc(func[1], Color.Red, "Параболическая");
       }
 
@@ -228,7 +242,7 @@ namespace math_in.Views {
 
         deters[2] = LeastSquaresMethod.ErrorEstimation(XValues, YValues, func[2]);
 
-        result += $"\nПараметрическая = {deters[2]}";
+        resultExponentialString = $"\nПараметрическая = {deters[2]}";
 
         PrintFunc(func[2], Color.Blue, "Параметрическое");
       }
@@ -236,15 +250,16 @@ namespace math_in.Views {
       double maxDet = deters.Min();
 
       if (deters[0].Equals(maxDet)) {
-        result += "\nСледовательно, ближе всех Линейная регрессия";
+        resultString = "\nСледовательно, ближе всех Линейная регрессия";
       } else if (deters[1].Equals(maxDet)) {
-        result += "\nСледовательно, ближе всех Параболическая регрессия";
+        resultString = "\nСледовательно, ближе всех Параболическая регрессия";
       } else {
-        result += "\nСледовательно, ближе всех Параметрическая регрессия";
-      }   
+        resultString = "\nСледовательно, ближе всех Параметрическая регрессия";
+      }
 
-      MessageBox.Show(result, "Результаты");
 
+      MessageBox_LeastSquaresMethod_Result.Show(resultLinearString, resultParabolicString, resultExponentialString, resultString);
+      PrintPoints(XValues.ToArray(), YValues.ToArray());
       Wplot.Refresh();
     }
 

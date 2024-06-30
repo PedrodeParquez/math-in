@@ -220,6 +220,9 @@
     <Compile Include="Views\Message Boxes\MessageBox_LeastSquaresMethod.xaml.cs">
       <DependentUpon>MessageBox_LeastSquaresMethod.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Message Boxes\MessageBox_LeastSquaresMethod_Result.xaml.cs">
+      <DependentUpon>MessageBox_LeastSquaresMethod_Result.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Message Boxes\MessageBox_Sorting.xaml.cs">
       <DependentUpon>MessageBox_Sorting.xaml</DependentUpon>
     </Compile>
@@ -278,6 +281,10 @@
     <Page Include="Views\Message Boxes\MessageBox_LeastSquaresMethod.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Message Boxes\MessageBox_LeastSquaresMethod_Result.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Message Boxes\MessageBox_Sorting.xaml">
       <SubType>Designer</SubType>
